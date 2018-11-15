@@ -424,6 +424,18 @@ The same thing in Hy::
   [1 2 None 42]
   => (optional-arg 1 2 3 4)
   [1 2 3 4]
+  
+Just like in Python, that means you can enclose a variable at function definition time:
+
+  => (defn vonNeumann [&optional [count (list)]]                                                                                                                                                                      
+  ...   (count.append (copy.deepcopy count)) count)
+  => (vonNeumann)
+  [[]]
+  => (vonNeumann)
+ [[], [[]]]
+  => count
+  <class 'itertools.count'>
+
 
 You can call keyword arguments like this::
 
